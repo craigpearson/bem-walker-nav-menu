@@ -4,7 +4,27 @@
 
 # BEM Nav Menu Walker
 
-BEM Nav Menu Walker for WordPress.
+[BEM](http://getbem.com) Nav Menu Walker for WordPress.
+
+## Usage
+
+```php
+<nav class="nav">
+
+    <?php
+    // Will generate:
+    // <ul id="..." class="nav__list">
+    //     <li class="nav__item ...">
+    //         <a href="..." class="nav__link">...</a>
+    // ...
+
+    wp_nav_menu([
+        'walker' => new BC\WordPress\WalkerNavMenu
+    ]);
+    ?>
+
+</nav>
+```
 
 ## License
 
