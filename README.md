@@ -29,7 +29,7 @@ composer require benjamincrozat/bem-nav-menu-walker
     // ...
 
     wp_nav_menu([
-        'walker' => new BC\WordPress\WalkerNavMenu
+        'walker' => new BC\WordPress\WalkerNavMenu,
     ]);
     ?>
 
