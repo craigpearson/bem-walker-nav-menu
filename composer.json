@@ -1,6 +1,6 @@
 {
-    "name": "benjamincrozat/bem-nav-menu-walker",
-    "homepage": "https://github.com/benjamincrozat/bem-nav-menu-walker/",
+    "name": "benjamincrozat/bem-walker-nav-menu",
+    "homepage": "https://github.com/benjamincrozat/bem-walker-nav-menu/",
     "license": "WTFPL",
     "type": "wordpress-plugin",
     "authors": [
@@ -10,7 +10,7 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/benjamincrozat/bem-nav-menu-walker/issues"
+        "issues": "https://github.com/benjamincrozat/bem-walker-nav-menu/issues"
     },
     "keywords": [
         "wordpress"
