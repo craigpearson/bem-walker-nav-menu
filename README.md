@@ -6,6 +6,16 @@
 
 [BEM](http://getbem.com) Nav Menu Walker for WordPress.
 
+## Installation
+
+For now, you have to install it manually in your plugin folder.
+
+If you use something like [wp-boilerplate](https://github.com/benjamincrozat/bem-nav-menu-walker), just install it via Composer like so:
+
+```bash
+composer require benjamincrozat/bem-nav-menu-walker
+```
+
 ## Usage
 
 ```php
