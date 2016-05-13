@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Plugin Name: BEM Nav Menu Walker
- * Plugin URI:  https://github.com/benjamincrozat/bem-nav-menu-walker
- * Description: BEM Nav Menu Walker for WordPress.
+ * Plugin Name: BEM Walker Nav Menu
+ * Plugin URI:  https://github.com/benjamincrozat/bem-walker-nav-menu
+ * Description: BEM Walker Nav Menu for WordPress.
  * Version:     1.0.0
  * Author:      Benjamin Crozat
  * Author URI:  https://benjamincrozat.com
@@ -11,7 +11,7 @@
  * License URI: http://www.wtfpl.net/about/
  */
 
-namespace BC\WordPress;
+namespace BC\WordPress\BEMWalkerNavMenu;
 
 if (!defined('WPINC')) {
     exit;

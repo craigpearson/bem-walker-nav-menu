@@ -1,8 +1,8 @@
-[![Latest Stable Version](https://poser.pugx.org/benjamincrozat/bem-nav-menu-walker/v/stable)](https://packagist.org/packages/benjamincrozat/bem-nav-menu-walker)
-[![License](https://poser.pugx.org/benjamincrozat/bem-nav-menu-walker/license)](https://packagist.org/packages/benjamincrozat/bem-nav-menu-walker)
-[![Total Downloads](https://poser.pugx.org/benjamincrozat/bem-nav-menu-walker/downloads)](https://packagist.org/packages/benjamincrozat/bem-nav-menu-walker)
+[![Latest Stable Version](https://poser.pugx.org/benjamincrozat/bem-walker-nav-menu/v/stable)](https://packagist.org/packages/benjamincrozat/bem-walker-nav-menu)
+[![License](https://poser.pugx.org/benjamincrozat/bem-walker-nav-menu/license)](https://packagist.org/packages/benjamincrozat/bem-walker-nav-menu)
+[![Total Downloads](https://poser.pugx.org/benjamincrozat/bem-walker-nav-menu/downloads)](https://packagist.org/packages/benjamincrozat/bem-walker-nav-menu)
 
-# BEM Nav Menu Walker
+# BEM Walker Nav Menu
 
 [BEM](http://getbem.com) Nav Menu Walker for WordPress.
 
@@ -13,7 +13,7 @@ For now, you have to install it manually in your plugin folder.
 If you use something like [wp-boilerplate](https://github.com/benjamincrozat/wp-boilerplate), just install it via Composer like so:
 
 ```bash
-composer require benjamincrozat/bem-nav-menu-walker
+composer require benjamincrozat/bem-walker-nav-menu
 ```
 
 ## Usage
@@ -45,7 +45,7 @@ You can extend the class too. Here is an exemple where we change "nav" to "menu"
 
 namespace Your\Namespace;
 
-class NavMenuWalker extends \BC\WordPress\NavMenuWalker
+class WalkerNavMenu extends \BC\WordPress\BEMWalkerNavMenu\WalkerNavMenu
 {
     protected $navListClass    = 'menu__list';
     protected $navItemClass    = 'menu__item';
