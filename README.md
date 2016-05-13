@@ -4,7 +4,7 @@
 
 # BEM Walker Nav Menu
 
-[BEM](http://getbem.com) Nav Menu Walker for WordPress.
+[BEM](http://getbem.com) Walker Nav Menu for WordPress.
 
 ## Installation
 
@@ -23,7 +23,7 @@ composer require benjamincrozat/bem-walker-nav-menu
 
     <?php
     wp_nav_menu([
-        'walker' => new BC\WordPress\WalkerNavMenu,
+        'walker' => new BC\WordPress\BEMWalkerNavMenu\WalkerNavMenu,
     ]);
 
     // Will generate:
