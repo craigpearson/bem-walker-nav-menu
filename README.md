@@ -38,6 +38,24 @@ composer require benjamincrozat/bem-nav-menu-walker
 </nav>
 ```
 
+You can extend the class too. Here is an exemple where we change "nav" to "menu":
+
+```php
+<?php
+
+namespace Your\Namespace;
+
+class NavMenuWalker extends \BC\WordPress\NavMenuWalker
+{
+    protected $navListClass    = 'menu__list';
+    protected $navItemClass    = 'menu__item';
+    protected $navLinkClass    = 'menu__link';
+    protected $subNavClass     = 'sub-menu';
+    protected $subNavItemClass = 'sub-menu__item';
+    protected $subNavLinkClass = 'sub-menu__link';
+}
+```
+
 ## License
 
 [WTFPL](http://www.wtfpl.net/about/)
