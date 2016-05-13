@@ -37,24 +37,18 @@ class WalkerNavMenu extends \Walker_Nav_Menu
 
     public function start_lvl(&$output, $depth = 0, $args = [])
     {
-        $indent  = str_repeat("\t", $depth);
-        $output .= "\n$indent<ul class=\"' . $this->subNavClass . '\">\n";
+        $output .= '<ul class="' . $this->subNavClass . '">';
     }
 
     public function start_el(&$output, $item, $depth = 0, $args = [], $id = 0)
     {
-        $indent = $depth ? str_repeat("\t", $depth) : '';
-
         $classes = empty($item->classes) ? [] : (array) $item->classes;
 
         array_walk($classes, function (&$value) use ($depth) {
-            if ($depth) {
-                $value = str_replace('menu-item-', $this->subNavItemClass . '--', $value);
-                $value = str_replace('menu-item', $this->subNavItemClass, $value);
-            } else {
-                $value = str_replace('menu-item-', $this->navItemClass . '--', $value);
-                $value = str_replace('menu-item', $this->navItemClass, $value);
-            }
+            $replacement = $depth ? $this->subNavItemClass : $this->navItemClass;
+
+            $value = str_replace('menu-item-', $replacement . '--', $value);
+            $value = str_replace('menu-item', $replacement, $value);
         });
 
         $classes[] = $this->navItemClass . '--' . $item->ID;
@@ -67,7 +61,7 @@ class WalkerNavMenu extends \Walker_Nav_Menu
         $id = apply_filters('nav_menu_item_id', $this->navItemClass . '--'. $item->ID, $item, $args, $depth);
         $id = $id ? ' id="' . esc_attr($id) . '"' : '';
 
-        $output .= $indent . '<li' . $id . $class_names .'>';
+        $output .= '<li' . $id . $class_names .'>';
 
         $atts = [];
         $atts['title']  = !empty($item->attr_title) ? $item->attr_title      : '';
