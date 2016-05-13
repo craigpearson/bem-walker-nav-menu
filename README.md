@@ -22,15 +22,17 @@ composer require benjamincrozat/bem-nav-menu-walker
 <nav class="nav">
 
     <?php
-    // Will generate:
-    // <ul id="..." class="nav__list">
-    //     <li class="nav__item ...">
-    //         <a href="..." class="nav__link">...</a>
-    // ...
-
     wp_nav_menu([
         'walker' => new BC\WordPress\WalkerNavMenu,
     ]);
+
+    // Will generate:
+    // <ul id="..." class="nav__list">
+    //     <li class="nav__item ... nav__item--123">
+    //         <a href="..." class="nav__link">...</a>
+    //         <ul class="sub-nav">
+    //             <li class="sub-nav__item">
+    // ...
     ?>
 
 </nav>
