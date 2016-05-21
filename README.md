@@ -8,7 +8,7 @@
 
 ## Installation
 
-For now, you have to install it manually in your plugin folder.
+For now, you have to install it manually in your plugins folder.
 
 If you use something like [wp-boilerplate](https://github.com/benjamincrozat/wp-boilerplate), just install it via Composer like so:
 
