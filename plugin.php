@@ -37,7 +37,7 @@ class WalkerNavMenu extends \Walker_Nav_Menu
 
     public function start_lvl(&$output, $depth = 0, $args = [])
     {
-        $output .= '<ul class="' . $this->subNavClass . '">';
+        $output .= sprintf('<ul class="%s">', $this->subNavClass);
     }
 
     public function start_el(&$output, $item, $depth = 0, $args = [], $id = 0)
@@ -47,21 +47,21 @@ class WalkerNavMenu extends \Walker_Nav_Menu
         array_walk($classes, function (&$value) use ($depth) {
             $replacement = $depth ? $this->subNavItemClass : $this->navItemClass;
 
-            $value = str_replace('menu-item-', $replacement . '--', $value);
+            $value = str_replace('menu-item-', sprintf('%s--', $replacement), $value);
             $value = str_replace('menu-item', $replacement, $value);
         });
 
-        $classes[] = $this->navItemClass . '--' . $item->ID;
+        $classes[] = sprintf('%s--%s', $this->navItemClass, $item->ID);
 
         $args = apply_filters('nav_menu_item_args', $args, $item, $depth);
 
         $class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args, $depth));
-        $class_names = $class_names ? ' class="' . esc_attr($class_names) . '"' : '';
+        $class_names = $class_names ? sprintf(' class="%s"', esc_attr($class_names)) : '';
 
-        $id = apply_filters('nav_menu_item_id', $this->navItemClass . '--'. $item->ID, $item, $args, $depth);
-        $id = $id ? ' id="' . esc_attr($id) . '"' : '';
+        $id = apply_filters('nav_menu_item_id', sprintf('%s--%s', $this->navItemClass, $item->ID), $item, $args, $depth);
+        $id = $id ? sprintf(' id="%s"', esc_attr($id)) : '';
 
-        $output .= '<li' . $id . $class_names .'>';
+        $output .= sprintf('<li%s%s>', $id, $class_names);
 
         $atts = [];
         $atts['title']  = !empty($item->attr_title) ? $item->attr_title      : '';
@@ -75,18 +75,20 @@ class WalkerNavMenu extends \Walker_Nav_Menu
         $attributes = '';
 
         foreach ($atts as $attr => $value) {
-            if (!empty($value)) {
-                $value = ('href' === $attr) ? esc_url($value) : esc_attr($value);
-                $attributes .= ' ' . $attr . '="' . $value . '"';
+            if (empty($value)) {
+                continue;
             }
+
+            $value       = 'href' === $attr ? esc_url($value) : esc_attr($value);
+            $attributes .= sprintf('%s="%s"', $attr, $value);
         }
 
         $title = apply_filters('the_title', $item->title, $item->ID);
 
         $title = apply_filters('nav_menu_item_title', $title, $item, $args, $depth);
 
-        $item_output = $args->before;
-        $item_output .= '<a'. $attributes .'>';
+        $item_output  = $args->before;
+        $item_output .= sprintf('<a%s>', $attributes);
         $item_output .= $args->link_before . $title . $args->link_after;
         $item_output .= '</a>';
         $item_output .= $args->after;
