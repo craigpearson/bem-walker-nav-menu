@@ -19,13 +19,39 @@ if (!defined('WPINC')) {
 
 class WalkerNavMenu extends \Walker_Nav_Menu
 {
+    /**
+     * @var string
+     */
     protected $navListClass    = 'nav__list';
+
+    /**
+     * @var string
+     */
     protected $navItemClass    = 'nav__item';
+
+    /**
+     * @var string
+     */
     protected $navLinkClass    = 'nav__link';
+
+    /**
+     * @var string
+     */
     protected $subNavClass     = 'sub-nav';
+
+    /**
+     * @var string
+     */
     protected $subNavItemClass = 'sub-nav__item';
+
+    /**
+     * @var string
+     */
     protected $subNavLinkClass = 'sub-nav__link';
 
+    /**
+     * Constructor.
+     */
     public function __construct()
     {
         add_filter('wp_nav_menu_args', function ($args) {

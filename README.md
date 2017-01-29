@@ -38,7 +38,7 @@ composer require benjamincrozat/bem-walker-nav-menu
 </nav>
 ```
 
-You can extend the class too. Here is an exemple where we change "nav" to "menu":
+Extend the class to change the HTML classes.
 
 ```php
 <?php
