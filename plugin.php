@@ -57,7 +57,7 @@ class BEMWalkerNavMenu extends \Walker_Nav_Menu
     public function __construct()
     {
         add_filter('wp_nav_menu_args', function ($args) {
-            $args['items_wrap'] = '<ul id="%1$s" class="' . $this->prefix . '-' . $this->navListClass . '">%3$s</ul>';
+            $args['items_wrap'] = '<ul id="%1$s" class="' . $this->getPrefix() . $this->navListClass . '">%3$s</ul>';
 
             return $args;
         });
@@ -65,7 +65,7 @@ class BEMWalkerNavMenu extends \Walker_Nav_Menu
 
     public function start_lvl(&$output, $depth = 0, $args = [])
     {
-        $output .= sprintf('<ul class="%s">', $this->prefix . '-' . $this->subNavClass);
+        $output .= sprintf('<ul class="%s">', $this->getPrefix() . $this->subNavClass);
     }
 
     public function start_el(&$output, $item, $depth = 0, $args = [], $id = 0)
@@ -73,20 +73,20 @@ class BEMWalkerNavMenu extends \Walker_Nav_Menu
         $classes = empty($item->classes) ? [] : (array) $item->classes;
 
         array_walk($classes, function (&$value) use ($depth) {
-            $replacement = $depth ? $this->prefix . '-' . $this->subNavItemClass : $this->prefix . '-' . $this->navItemClass;
+            $replacement = $depth ? $this->getPrefix() . $this->subNavItemClass : $this->getPrefix() . $this->navItemClass;
 
             $value = str_replace('menu-item-', sprintf('%s--', $replacement), $value);
             $value = str_replace('menu-item', $replacement, $value);
         });
 
-        $classes[] = sprintf('%s--%s', $this->prefix . '-' . $this->navItemClass, $item->ID);
+        $classes[] = sprintf('%s--%s', $this->getPrefix() . $this->navItemClass, $item->ID);
 
         $args = apply_filters('nav_menu_item_args', $args, $item, $depth);
 
         $class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args, $depth));
         $class_names = $class_names ? sprintf(' class="%s"', esc_attr($class_names)) : '';
 
-        $id = apply_filters('nav_menu_item_id', sprintf('%s--%s', $this->prefix . '-' . $this->navItemClass, $item->ID), $item, $args, $depth);
+        $id = apply_filters('nav_menu_item_id', sprintf('%s--%s', $this->getPrefix() . $this->navItemClass, $item->ID), $item, $args, $depth);
         $id = $id ? sprintf(' id="%s"', esc_attr($id)) : '';
 
         $output .= sprintf('<li%s%s>', $id, $class_names);
@@ -96,7 +96,7 @@ class BEMWalkerNavMenu extends \Walker_Nav_Menu
         $atts['target'] = !empty($item->target)     ? $item->target          : '';
         $atts['rel']    = !empty($item->xfn)        ? $item->xfn             : '';
         $atts['href']   = !empty($item->url)        ? $item->url             : '';
-        $atts['class']  = $depth                    ? $this->prefix . '-' . $this->subNavLinkClass : $this->prefix . '-' . $this->navLinkClass;
+        $atts['class']  = $depth                    ? $this->getPrefix() . $this->subNavLinkClass : $this->getPrefix() . $this->navLinkClass;
 
         $atts = apply_filters('nav_menu_link_attributes', $atts, $item, $args, $depth);
 
@@ -116,11 +116,23 @@ class BEMWalkerNavMenu extends \Walker_Nav_Menu
         $title = apply_filters('nav_menu_item_title', $title, $item, $args, $depth);
 
         $item_output  = $args->before;
-        $item_output .= sprintf('<a%s>', $attributes);
+        $item_output .= sprintf('<a %s>', $attributes);
         $item_output .= $args->link_before . $title . $args->link_after;
         $item_output .= '</a>';
         $item_output .= $args->after;
 
         $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
+    }
+
+    /**
+     * @return string
+     */
+    protected function getPrefix()
+    {
+        if (empty($this->prefix)) {
+            return '';
+        }
+
+        return $this->getPrefix();
     }
 }
