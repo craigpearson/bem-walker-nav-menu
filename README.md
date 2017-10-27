@@ -8,9 +8,7 @@
 
 ## Installation
 
-For now, you have to install it manually in your plugins folder.
-
-If you use something like [wp-boilerplate](https://github.com/benjamincrozat/wp-boilerplate), just install it via Composer like so:
+You can manually download it and install it in your plugins folder or install it via Composer:
 
 ```bash
 composer require benjamincrozat/bem-walker-nav-menu
@@ -20,10 +18,9 @@ composer require benjamincrozat/bem-walker-nav-menu
 
 ```php
 <nav class="nav">
-
     <?php
     wp_nav_menu([
-        'walker' => new BC\WordPress\BEMWalkerNavMenu\WalkerNavMenu,
+        'walker' => new BC\WordPress\BEMWalkerNavMenu,
     ]);
 
     // Will generate:
@@ -34,7 +31,6 @@ composer require benjamincrozat/bem-walker-nav-menu
     //             <li class="sub-nav__item">
     // ...
     ?>
-
 </nav>
 ```
 
@@ -43,15 +39,20 @@ Extend the class to change the HTML classes.
 ```php
 <?php
 
-namespace Your\Namespace;
-
-class WalkerNavMenu extends \BC\WordPress\BEMWalkerNavMenu\WalkerNavMenu
+class CustomWalkerNavMenu extends \BC\WordPress\BEMWalkerNavMenu
 {
-    protected $navListClass    = 'menu__list';
-    protected $navItemClass    = 'menu__item';
-    protected $navLinkClass    = 'menu__link';
-    protected $subNavClass     = 'sub-menu';
+    protected $prefix = 'c';
+
+    protected $navListClass = 'menu__list';
+
+    protected $navItemClass = 'menu__item';
+
+    protected $navLinkClass = 'menu__link';
+
+    protected $subNavClass = 'sub-menu';
+
     protected $subNavItemClass = 'sub-menu__item';
+
     protected $subNavLinkClass = 'sub-menu__link';
 }
 ```

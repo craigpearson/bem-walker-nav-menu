@@ -1,5 +1,6 @@
 {
     "name": "benjamincrozat/bem-walker-nav-menu",
+    "description": "BEM naming for WordPress navigation menus.",
     "homepage": "https://github.com/benjamincrozat/bem-walker-nav-menu/",
     "license": "WTFPL",
     "type": "wordpress-plugin",
@@ -13,6 +14,8 @@
         "issues": "https://github.com/benjamincrozat/bem-walker-nav-menu/issues"
     },
     "keywords": [
+        "navigation",
+        "plugin",
         "wordpress"
     ],
     "require": {
