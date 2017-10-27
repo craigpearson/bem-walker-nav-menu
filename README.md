@@ -4,7 +4,7 @@
 
 # BEM Walker Nav Menu
 
-[BEM](http://getbem.com) Walker Nav Menu for WordPress.
+[BEM](http://getbem.com) naming for WordPress navigation menus.
 
 ## Installation
 
