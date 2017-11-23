@@ -13,6 +13,11 @@
     "support": {
         "issues": "https://github.com/craigpearson/bem-walker-nav-menu/issues"
     },
+    "autoload": {
+        "files": [
+          "plugin.php"
+        ]
+    },
     "keywords": [
         "navigation",
         "plugin",
