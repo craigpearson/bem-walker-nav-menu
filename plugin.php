@@ -133,6 +133,6 @@ class BEMWalkerNavMenu extends \Walker_Nav_Menu
             return '';
         }
 
-        return $this->getPrefix();
+        return $this->prefix . '-';
     }
 }
