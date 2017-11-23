@@ -1,7 +1,3 @@
-[![Latest Stable Version](https://poser.pugx.org/benjamincrozat/bem-walker-nav-menu/v/stable)](https://packagist.org/packages/benjamincrozat/bem-walker-nav-menu)
-[![License](https://poser.pugx.org/benjamincrozat/bem-walker-nav-menu/license)](https://packagist.org/packages/benjamincrozat/bem-walker-nav-menu)
-[![Total Downloads](https://poser.pugx.org/benjamincrozat/bem-walker-nav-menu/downloads)](https://packagist.org/packages/benjamincrozat/bem-walker-nav-menu)
-
 # BEM Walker Nav Menu
 
 [BEM](http://getbem.com) naming for WordPress navigation menus.
@@ -11,7 +7,7 @@
 You can manually download it and install it in your plugins folder or install it via Composer:
 
 ```bash
-composer require benjamincrozat/bem-walker-nav-menu
+composer require craigpearson/bem-walker-nav-menu
 ```
 
 ## Usage
@@ -20,7 +16,7 @@ composer require benjamincrozat/bem-walker-nav-menu
 <nav class="nav">
     <?php
     wp_nav_menu([
-        'walker' => new BC\WordPress\BEMWalkerNavMenu,
+        'walker' => new CP\BEM\navWalker,
     ]);
 
     // Will generate:
@@ -39,7 +35,7 @@ Extend the class to change the HTML classes.
 ```php
 <?php
 
-class CustomWalkerNavMenu extends \BC\WordPress\BEMWalkerNavMenu
+class CustomWalkerNavMenu extends \CP\BEM\navWalker
 {
     protected $prefix = 'c';
 

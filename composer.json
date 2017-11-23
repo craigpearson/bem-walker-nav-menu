@@ -6,21 +6,23 @@
     "type": "package",
     "authors": [
         {
-            "name": "Benjamin Crozat",
-            "homepage": "https://benjamincrozat.com/"
+            "name": "Craig Pearson",
+            "homepage": "https://www.craigpearson.co.uk/"
         }
     ],
     "support": {
         "issues": "https://github.com/craigpearson/bem-walker-nav-menu/issues"
     },
     "autoload": {
+        "psr-4": {
+            "CP\\BEM\\" : ""
+        },
         "files": [
-          "plugin.php"
+          "walker.php"
         ]
     },
     "keywords": [
         "navigation",
-        "plugin",
         "wordpress"
     ],
     "require": {
