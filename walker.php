@@ -118,6 +118,6 @@ class navWalker extends \Walker_Nav_Menu
             return '';
         }
 
-        return $this->prefix . '-';
+        return $this->prefix;
     }
 }
