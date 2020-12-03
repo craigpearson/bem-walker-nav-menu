@@ -42,7 +42,7 @@ class navWalker extends \Walker_Nav_Menu
     public function __construct()
     {
         add_filter('wp_nav_menu_args', function ($args) {
-            $args['items_wrap'] = '<ul id="%1$s" class="' . $this->getPrefix() . $this->navListClass . '">%3$s</ul>';
+            $args['items_wrap'] = '<ul id="%1$s" class="' . $args['menu_class'] . ' ' . $this->getPrefix() . $this->navListClass . '">%3$s</ul>';
 
             return $args;
         });
