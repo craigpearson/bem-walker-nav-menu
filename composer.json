@@ -16,10 +16,7 @@
     "autoload": {
         "psr-4": {
             "CP\\BEM\\" : ""
-        },
-        "files": [
-          "walker.php"
-        ]
+        }
     },
     "keywords": [
         "navigation",
